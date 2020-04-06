@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.Challenge;
 import dao.ChallengeDAO;
 
@@ -17,12 +18,12 @@ public class ChallengesListServlet extends HttpServlet {
     private ChallengeDAO dao;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         List<Challenge> persons = dao.getPersons();
         req.setAttribute("persons", persons);
         getServletContext().getRequestDispatcher("/listPersons.jsp").forward(req, resp);
     }
-    
-    
+
+
 }
